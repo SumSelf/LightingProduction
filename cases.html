@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工程案例中心 | 四川巨石防雷科技有限公司</title>
+<meta name="keywords" content="防雷工程案例,工厂防雷,建筑防雷,充电站防雷,变电站防雷,基站防雷,库房防雷,智能防雷">
+<meta name="description" content="四川巨石防雷科技有限公司工程案例中心，涵盖工厂防雷、建筑防雷、充电站防雷、变电站、基站、库房及智能防雷在线监测等项目实例。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">巨石</span>
+      <span>
+        <span class="brand-name" data-field="company.name">四川巨石防雷科技有限公司</span><br>
+        <span class="brand-sub">LIGHTNING PROTECTION</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button">菜单</button>
+    <nav class="menu" id="main-menu">
+      <a href="index.html#business">主营业务</a>
+      <a href="index.html#solutions">业务分类</a>
+      <a href="index.html#products">设备</a>
+      <a href="index.html#highlights">工程亮点</a>
+      <a href="cases.html">案例中心</a>
+      <a href="#message">在线留言</a>
+      <a href="index.html#contact">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 案例页头 ============ -->
+<section class="section" style="padding:44px 0 8px;">
+  <div class="wrap">
+    <div class="kicker" style="font-size:12px;letter-spacing:3px;color:var(--blue);margin-bottom:8px;">PROJECT CASES</div>
+    <h1 style="font-size:28px;color:var(--ink);margin-bottom:10px;">工程案例中心</h1>
+    <p style="color:var(--muted);max-width:820px;">
+      本页共收录 <b id="case-total">0</b> 个案例条目，按业务分类筛选。案例内容由
+      <code style="font-size:13px;">assets/js/cases-data.js</code> 驱动，
+      新增现场施工照片与项目描述只需追加数组条目，无需改动页面结构。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 案例列表 ============ -->
+<section class="section section-alt" id="case-center" style="padding-top:32px;">
+  <div class="wrap">
+    <div class="filter" id="case-filter"></div>
+    <div id="case-list"></div>
+  </div>
+</section>
+
+<!-- ============ 更新说明 ============ -->
+<section class="section" id="how-to-update">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">HOW TO UPDATE</div>
+      <h2>如何更新案例</h2>
+      <p>三步完成：放图片 → 加数据 → 提交发布。</p>
+    </div>
+    <div class="hl">
+      <div class="hl-item">
+        <b>1. 放入现场照片</b>
+        <span>将现场施工图片（建议横向 1280×720 左右，PNG/JPG 均可）放入 assets/img/ 目录，例如 case-09.png。</span>
+      </div>
+      <div class="hl-item">
+        <b>2. 追加数据条目</b>
+        <span>打开 assets/js/cases-data.js，复制一段案例对象，填写 title、location、year、scale、cover、summary、scope、result、tags。</span>
+      </div>
+      <div class="hl-item">
+        <b>3. 多图与分类</b>
+        <span>gallery 可填多张现场图；category 取值：factory / building / charging / special / smart，对应页面筛选按钮。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 留言 ============ -->
+<section class="section section-dark" id="message">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">MESSAGE</div>
+      <h2>项目咨询与留言</h2>
+      <p>留下需求与联系方式，我们会尽快与您联系。留言仅在后台留存，本页不展示留言内容。</p>
+    </div>
+    <div class="form-wrap">
+      <form class="form" id="msg-form" novalidate>
+        <div class="frow" id="row-name">
+          <label for="f-name">姓名 <i>*</i></label>
+          <input id="f-name" name="name" type="text" maxlength="30" placeholder="请输入您的姓名">
+          <div class="err">请填写姓名（2-30 字）</div>
+        </div>
+        <div class="frow">
+          <label for="f-org">单位名称</label>
+          <input id="f-org" name="org" type="text" maxlength="60" placeholder="选填">
+        </div>
+        <div class="frow" id="row-phone">
+          <label for="f-phone">联系电话 <i>*</i></label>
+          <input id="f-phone" name="phone" type="text" maxlength="20" placeholder="手机号或 028-0000 0000">
+          <div class="err">请填写有效的联系电话（手机号或带区号的固话）</div>
+        </div>
+        <div class="frow" id="row-email">
+          <label for="f-email">电子邮箱</label>
+          <input id="f-email" name="email" type="text" maxlength="60" placeholder="选填，便于我们邮件回复您">
+          <div class="err">邮箱格式不正确（可留空）</div>
+        </div>
+        <div class="frow">
+          <label for="f-need">需求类型</label>
+          <select id="f-need" name="need">
+            <option value="防雷设计">防雷设计</option>
+            <option value="防雷检测">防雷检测</option>
+            <option value="防雷设备">防雷设备</option>
+            <option value="防雷设施">防雷设施</option>
+            <option value="防雷工程">防雷工程</option>
+            <option value="智能防雷">智能防雷 / AI 防雷 / 嵌入式开发</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="frow" id="row-content">
+          <label for="f-content">留言内容 <i>*</i></label>
+          <textarea id="f-content" name="content" maxlength="500" placeholder="请简述项目地点、建筑或设备情况与需求"></textarea>
+          <div class="err">留言内容请控制在 5-500 字</div>
+        </div>
+        <div class="consent">
+          <input id="f-consent" name="consent" type="checkbox">
+          <label for="f-consent" style="font-weight:400;">我已阅读并同意：所填信息仅用于业务联系，不作其他用途。</label>
+        </div>
+        <button class="btn submit" type="submit">提交留言</button>
+        <p class="fnote">当前会话凭证：<span id="msg-token">—</span>（每次打开页面随机生成，仅用于防止重复提交）</p>
+        <p class="fnote" id="msg-token-hint">本机已提交留言：<span id="msg-count">0</span> 次（记录保存在本机浏览器，不上传展示）</p>
+        <div class="result" id="msg-result"></div>
+      </form>
+      <div>
+        <h3 style="font-size:17px;color:#fff;margin-bottom:14px;">留言说明 <span id="mail-status" style="font-size:12px;color:#8fa4bb;font-weight:400;"></span></h3>
+        <ul class="card" style="border-color:rgba(120,150,180,.25);background:rgba(255,255,255,.03);">
+          <li style="color:#93a8bf;font-size:13.5px;">留言通过 EmailJS 直接发送到公司邮箱，无需后端服务器；</li>
+          <li style="color:#93a8bf;font-size:13.5px;">每次打开页面会生成一个随机会话凭证，同一凭证只能提交一次；</li>
+          <li style="color:#93a8bf;font-size:13.5px;">留言提交后仅显示「提交成功」与本机累计次数，不在页面展示留言内容；</li>
+          <li style="color:#93a8bf;font-size:13.5px;">邮箱未配置时留言仅记入本机，页面会明确提示，不会让您误以为我们已收到。</li>
+        </ul>
+        <h3 style="font-size:17px;color:#fff;margin:22px 0 14px;">联系方式</h3>
+        <ul class="contact-list">
+          <li><b>电话</b><span><a data-field="contact.phone" data-href-field="contact.phoneHref" href="tel:+862800000000">028-0000 0000</a></span></li>
+          <li><b>手机</b><span><a data-field="contact.mobile" data-href-field="contact.mobileHref" href="tel:+8613800000000">138 0000 0000</a></span></li>
+          <li><b>地址</b><span data-field="contact.address">四川省成都市天府新区麓山大道</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap foot-wrap">
+    <div>
+      <span data-field="company.name">四川巨石防雷科技有限公司</span> ·
+      <span data-field="contact.address">四川省成都市天府新区麓山大道</span>
+    </div>
+    <div>
+      电话 <a data-field="contact.phone" data-href-field="contact.phoneHref" href="tel:+862800000000">028-0000 0000</a> ·
+      邮箱 <a data-field="contact.email" data-href-field="contact.emailHref" href="mailto:service@example.com">service@example.com</a>
+    </div>
+    <div>
+      <span data-field="legal.icp">蜀ICP备00000000号-1</span> ·
+      © <span id="year">2026</span> <span data-field="legal.copyright">四川巨石防雷科技有限公司</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/cases-data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/message.js"></script>
+</body>
+</html>
