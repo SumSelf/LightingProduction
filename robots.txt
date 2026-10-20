@@ -1,0 +1,78 @@
+# robots.txt —— 四川巨石防雷科技有限公司
+# 本文件由 build.js 自动生成，请勿手动修改（改域名请改 config.js 后重跑 node build.js）
+# 目的：显式放行各类爬虫，包括 AI 搜索爬虫。未声明时部分 AI 爬虫会保守跳过。
+
+# ===== 通用 =====
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /emailjs/
+Crawl-delay: 1
+
+# ===== 传统搜索引擎 =====
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ===== AI 搜索 / 实时检索爬虫（决定能否被 AI 答案引用）=====
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: QwenBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ===== 站点地图 =====
+Sitemap: https://jsfl.sumstc.com/sitemap.xml
