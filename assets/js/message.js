@@ -407,7 +407,7 @@
     // 邮件通道未配置时，在页面上给出明确提示（避免误以为已送达公司）
     if (!emailjsConfigured()) {
       var tip = $('#mail-status');
-      if (tip) tip.textContent = '（未启用：' + (emailjsIssue() || '配置不完整') + '）';
+      if (tip) { tip.hidden = false; tip.textContent = '（未启用：' + (emailjsIssue() || '配置不完整') + '）'; }
       if (window.console) console.warn('[留言模块] 邮件通道未启用 →', emailjsIssue());
     }
   });

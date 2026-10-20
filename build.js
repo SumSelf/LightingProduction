@@ -412,23 +412,31 @@ ${body}
  * 案例页在 cases/ 子目录，需把 assets/ 的相对路径改成 ../assets/。
  * 幂等：目标页面已含 msg-float 则跳过。
  */
+const FLOAT_RE = /<!-- MSG-FLOAT:START[\s\S]*?<!-- MSG-FLOAT:END -->/;
+
 function msgFloatHtml(inCasesDir) {
   const src = fs.readFileSync(P('index.html'), 'utf8');
-  const m = src.match(/<!-- MSG-FLOAT:START[\s\S]*?-->([\s\S]*?)<!-- MSG-FLOAT:END -->/);
+  const m = src.match(FLOAT_RE);
   if (!m) return '';
-  let html = m[1].trim();
+  let html = m[0].trim();
   if (inCasesDir) html = html.replace(/(src|href)="assets\//g, '$1="../assets/');
-  return '<!-- 在线留言浮窗（由 build.js 从 index.html 复用） -->\n' + html + '\n';
+  return '<!-- 在线留言浮窗（由 build.js 从 index.html 同步，请勿手改本文件，改 index.html 后重跑构建） -->\n' + html + '\n';
 }
 
 function ensureMsgFloat(file, inCasesDir) {
   const fp = P(file);
   if (!fs.existsSync(fp)) return false;
   const s = fs.readFileSync(fp, 'utf8');
-  if (/class="msg-float"/.test(s)) return false;
   const block = msgFloatHtml(inCasesDir);
   if (!block) return false;
-  // 插到 </footer> 之后、脚本之前（若没有 footer 则插到 body 末尾）
+  // 已有浮窗块 → 整体替换为最新版（保证 index.html 改了能同步下去）
+  if (FLOAT_RE.test(s)) {
+    const out = s.replace(FLOAT_RE, block);
+    if (out === s) return false;
+    fs.writeFileSync(fp, out, 'utf8');
+    return true;
+  }
+  // 没有则插到 </footer> 之后、脚本之前（若没有 footer 则插到 body 末尾）
   let out;
   if (/<\/footer>/.test(s)) {
     out = s.replace(/<\/footer>/, '</footer>\n\n' + block);

@@ -113,6 +113,7 @@
 </footer>
 
 <!-- ============ 在线留言浮窗（常驻右下角，随时可点开） ============ -->
+<!-- 在线留言浮窗（由 build.js 从 index.html 同步，请勿手改本文件，改 index.html 后重跑构建） -->
 <!-- MSG-FLOAT:START  本段由 build.js 提取复用到 cases.html 与全部案例页，改这里即可全站同步 -->
 <div class="msg-float" id="message">
   <!-- 悬浮按钮 -->
@@ -133,6 +134,7 @@
 
     <div class="msg-panel-body">
       <form class="form" id="msg-form" novalidate>
+        <p class="msg-tip">留下需求与联系方式，我们会尽快与您联系。</p>
         <div class="frow" id="row-name">
           <label for="f-name">姓名 <i>*</i></label>
           <input id="f-name" name="name" type="text" maxlength="30" placeholder="请输入您的姓名">
@@ -175,29 +177,15 @@
           <label for="f-consent" style="font-weight:400;">我已阅读并同意：所填信息仅用于业务联系，不作其他用途。</label>
         </div>
         <button class="btn submit" type="submit">提交留言</button>
-        <p class="fnote">当前会话凭证：<span id="msg-token">—</span>（每次打开页面随机生成，仅用于防止重复提交）</p>
-        <p class="fnote" id="msg-token-hint">本机已提交留言：<span id="msg-count">0</span> 次（记录保存在本机浏览器，不上传展示）</p>
         <div class="result" id="msg-result"></div>
+        <p class="msg-hint" id="msg-token-hint"></p>
+        <span id="mail-status" hidden></span>
       </form>
-
-      <div class="msg-panel-side">
-        <b>留言说明 <span id="mail-status" style="font-weight:400;color:#8fa4bb;font-size:12px;"></span></b>
-        <ul>
-          <li>留言直接发送到公司邮箱，无需后端服务器；</li>
-          <li>每次打开页面生成随机会话凭证，同一凭证只能提交一次；</li>
-          <li>提交后仅显示「提交成功」与本机累计次数，不展示留言内容；</li>
-          <li>邮箱未配置时仅记入本机，页面会明确提示。</li>
-        </ul>
-        <b>更快的联系方式</b>
-        <ul class="msg-contact">
-          <li>电话 <a data-field="contact.phone" data-href-field="contact.phoneHref" href="tel:+8615982018405">15982018405</a></li>
-          <li>邮箱 <a data-field="contact.email" data-href-field="contact.emailHref" href="mailto:472128809@qq.com">472128809@qq.com</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </div>
 <!-- MSG-FLOAT:END -->
+
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/cases-data.js"></script>

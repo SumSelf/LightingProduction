@@ -252,7 +252,7 @@ ul{margin:0;padding:0;list-style:none;}
 .msg-panel{
   display:none;
   position:absolute;right:0;bottom:64px;
-  width:min(720px,calc(100vw - 40px));
+  width:min(420px,calc(100vw - 40px));
   max-height:min(78vh,760px);overflow-y:auto;
   background:#0d2137;border:1px solid rgba(120,150,180,.28);
   box-shadow:0 18px 50px rgba(0,0,0,.42);
@@ -274,32 +274,32 @@ ul{margin:0;padding:0;list-style:none;}
   color:#cfe0f2;font-size:19px;cursor:pointer;
 }
 .msg-close:hover{background:rgba(120,150,180,.18);}
-.msg-panel-body{display:grid;grid-template-columns:1fr 250px;gap:22px;padding:20px;}
-.msg-panel-body .form{padding:0;}
-.msg-panel-side b{display:block;font-size:14px;color:#fff;margin-bottom:8px;}
-.msg-panel-side b:not(:first-child){margin-top:18px;}
-.msg-panel-side ul{
-  list-style:none;margin:0;padding:0;
-  border-left:2px solid rgba(120,150,180,.3);padding-left:12px;
+.msg-panel-body{padding:18px 20px 20px;}
+/* 深色面板内的表单配色——必须整块覆盖 .form 的白底，否则输入框会变成白底白字 */
+.msg-panel .form{background:transparent;border:none;padding:0;}
+.msg-panel .frow label{color:#cfe0f2;}
+.msg-panel .frow label i{color:#7fb0ff;}
+.msg-panel .frow input,.msg-panel .frow select,.msg-panel .frow textarea{
+  background:#16293f;border:1px solid rgba(120,150,180,.4);color:#fff;
 }
-.msg-panel-side li{font-size:12.5px;color:#93a8bf;margin-bottom:6px;}
-.msg-contact li{font-size:13px;}
-.msg-contact a{color:var(--blue);text-decoration:none;}
-.msg-contact a:hover{text-decoration:underline;}
-/* 深色面板内的表单配色 */
-.msg-panel .form label{color:#cfe0f2;}
-.msg-panel .form input,.msg-panel .form select,.msg-panel .form textarea{
-  background:rgba(255,255,255,.06);border-color:rgba(120,150,180,.35);color:#fff;
+.msg-panel .frow input::placeholder,.msg-panel .frow textarea::placeholder{color:#6b8199;}
+.msg-panel .frow input:focus,.msg-panel .frow select:focus,.msg-panel .frow textarea:focus{
+  outline:none;border-color:var(--blue);background:#1a3350;
 }
-.msg-panel .form input:focus,.msg-panel .form select:focus,.msg-panel .form textarea:focus{
-  border-color:var(--blue);
-}
+/* 下拉框展开后的选项也要可读（部分浏览器默认白底黑字） */
+.msg-panel .frow select option{background:#16293f;color:#fff;}
 .msg-panel .consent label{color:#93a8bf;}
 .msg-panel .fnote{color:#7f95ad;}
+.msg-tip{font-size:13px;color:#93a8bf;margin-bottom:16px;line-height:1.6;}
+.msg-hint{font-size:12.5px;color:#7f95ad;margin-top:10px;line-height:1.6;}
+.msg-hint:empty{display:none;}
+/* 深色面板内的结果提示 */
+.msg-panel .result{background:rgba(23,138,76,.14);border-color:rgba(23,138,76,.5);color:#7fd6a5;}
+.msg-panel .result.error{background:rgba(192,57,43,.14);border-color:rgba(192,57,43,.55);color:#ff9f95;}
+.msg-panel .result b{color:#fff;}
 
 @media (max-width:860px){
   .msg-float{right:12px;bottom:12px;}
-  .msg-panel-body{grid-template-columns:1fr;}
   .msg-fab-text{display:none;}
   .msg-fab{padding:14px;width:50px;height:50px;justify-content:center;}
   .msg-panel{width:calc(100vw - 24px);bottom:70px;}
