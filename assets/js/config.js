@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
     enName: 'SICHUAN JUSHI LIGHTNING PROTECTION TECHNOLOGY CO., LTD.',
     slogan: '以规范为底线的雷电防护整体解决方案',
     intro: '公司立足四川、服务西南，专注雷电防护领域，业务覆盖防雷设计、防雷检测、防雷设备与设施、防雷工程，并提供电力线路累计跳闸检测与治理、智能防雷、AI 防雷与防雷嵌入式开发等技术服务。',
-    foundYear: '2016'          // 成立年份
+    foundYear: '2019'          // 成立年份
   },
 
   /* ---------- 2. 联系方式 ---------- */
